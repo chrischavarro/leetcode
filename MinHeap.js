@@ -74,7 +74,7 @@ class MinHeap {
       if (this.heap[i] <= this.heap[smallIndex]) {
         break;
       }
-      this.swap(index, smallIndex);
+      this.swap(i, smallIndex);
       i = smallIndex;
     }
   }
