@@ -58,7 +58,7 @@ function kthSmallest(root, k) {
 
 // RECURSIVE SOLUTION
 // create an array to store the node values
-// traverse inorder and push current node value to the array
+// traverse inorder and push node value to the array
 // return k-1 index of result array
 function kthSmallest(root, k) {
   const result = [];
