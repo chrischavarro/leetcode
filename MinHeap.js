@@ -74,7 +74,7 @@ class MinHeap {
       if (this.heap[i] <= this.heap[smallIndex]) {
         break;
       }
-      this.swap(index, smallIndex);
+      this.swap(i, smallIndex);
       i = smallIndex;
     }
   }
@@ -86,4 +86,33 @@ class MinHeap {
   size() {
     return this.heap.length;
   }
+}
+
+function heapifyDown(index, arr) {
+  let i = index;
+  while (i * 2 + 1 < arr.length) {
+    let leftIndex = i * 2 + 1;
+    let rightIndex = i * 2 + 2;
+    if (rightIndex < arr.length && arr[rightIndex] < arr[leftIndex]) {
+      leftIndex = rightIndex;
+    }
+    if (arr[i] <= arr[leftIndex]) {
+      break;
+    }
+    let temp = arr[i];
+    arr[i] = arr[leftIndex];
+    arr[leftIndex] = temp;
+    i = leftIndex;
+  }
+  return arr;
+}
+
+function convertArrayToHeap(arr) {
+  let current = Math.floor((arr.length - 1) / 2);
+  let result;
+  while (current >= 0) {
+    result = heapifyDown(current, arr);
+    current--;
+  }
+  return result;
 }
