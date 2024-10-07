@@ -11,6 +11,24 @@
  * @return {number[]}
  */
 
+
+// Iterative
+function preOrderTraversal(root, arr) {
+  const stack = [];
+  const result = [];
+  while (root || stack.length) {
+    if (root) {
+      result.push(root.val);
+      if (root.right) {
+        stack.push(root.right)
+      }
+      root = root.left;
+    } else {
+      root = stack.pop();
+    }
+  }
+}
+
 // navigate tree recursively starting with left branch followed by right branch
 // push value to result array before traversing both branches 
 // return when end of branch is reached
